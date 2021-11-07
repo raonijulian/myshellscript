@@ -28,11 +28,20 @@ sudo rm /var/lib/dpkg/lock-frontend; sudo rm /var/cache/apt/archives/lock ;
 ## Atualizando o repositório ##
 
 sudo apt update
+sudo apt full-upgrade
+
+## Timeshift ##
+
+sudo apt install timeshift
+
+## Restricted Formats ##
+
+sudo apt-get install ubuntu-restricted-extras
 
 
 ## Download e instalaçao de programas externos ##
 mkdir "$DIRETORIO_DOWNLOADS"
-# wget -c "$URL_GOOGLE_CHROME"       -P "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_GOOGLE_CHROME"       -P "$DIRETORIO_DOWNLOADS"
 # wget -c "$URL_SIMPLE_NOTE"         -P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_4K_VIDEO_DOWNLOADER" -P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_INSYNC"              -P "$DIRETORIO_DOWNLOADS"
@@ -55,10 +64,8 @@ sudo apt-key add winehq.key
 sudo apt-add-repository "deb $URL_PPA_WINE bionic main"
 sudo apt install inkscape -y
 
-sudo apt update
-
 ## Krita ##
-sudo add-apt-repository ppa:kritalime/ppa -y
+sudo add-apt-repository "$PPA_KRITA" -y
 sudo apt-get update
 sudo apt-get install krita -y
 
